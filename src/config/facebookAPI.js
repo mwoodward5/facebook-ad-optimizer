@@ -1,1 +1,0 @@
-// Facebook API configuration placeholder
