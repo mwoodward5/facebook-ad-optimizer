@@ -9,7 +9,7 @@ interface AdManagerProps {
 
 const AdManager: React.FC<AdManagerProps> = ({ title, description, value }) => {
   return (
-    <div className="p-6 bg-[#191817] border border-[#252525] rounded-3xl col-span-2">
+    <div className="p-6 bg-[#191817] border border-[#252525] rounded-3xl col-span-1 md:col-span-2">
       {/* Header */}
       <div className="">
         <h2 className="text-lg font-semibold">{title}</h2>

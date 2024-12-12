@@ -5,7 +5,7 @@ import { FaFacebook } from "react-icons/fa";
 const Connect = () => {
   const navigate = useNavigate();
   return (
-    <div className="w-1/2 flex flex-col justify-between p-8">
+    <div className="w-full md:w-1/2 flex flex-col justify-between p-8">
       <div className="flex flex-col items-start">
         <h1 className="text-primary text-4xl font-bold mb-4">LOGO</h1>
         <Step step={1} />

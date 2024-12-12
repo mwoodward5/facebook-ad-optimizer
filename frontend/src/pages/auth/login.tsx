@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <div className="flex h-screen ">
       {/* Left Section */}
-      <div className=" relative  w-1/2 flex flex-col justify-center items-center p-8">
+      <div className=" relative w-full  md:w-1/2 flex flex-col justify-center items-center p-8">
         <img
           src={IMAGES.login}
           alt="Placeholder"
@@ -28,7 +28,7 @@ const Login = () => {
       </div>
 
       {/* Right Section */}
-      <div className="w-1/2 flex flex-col justify-center items-center p-8">
+      <div className="absolute md:relative left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:translate-y-0 top-0 md:top-auto  bg-background w-full md:w-1/2 flex flex-col justify-center items-center p-8">
         <div className="w-full max-w-lg ">
           {/* Logo */}
           <h1 className="text-primary text-4xl font-bold mb-4">LOGO</h1>
@@ -77,12 +77,12 @@ const Login = () => {
               <p className="text-text text-sm text-center">or sign up with</p>
               <div className="h-[1px] flex-1 bg-[#252525]" />
             </div>
-            <div className="flex justify-center gap-4 mt-4">
-              <button className="flex items-center gap-2 border border-[#252525] bg-transparent text-sm text-white px-4 py-2 rounded-full bg-[#191817]">
+            <div className="flex flex-col md:flex-row md:justify-center gap-4 mt-4">
+              <button className="flex items-center justify-center gap-2 border border-[#252525] bg-transparent text-sm text-white px-4 py-2 rounded-full bg-[#191817]">
                 <FcGoogle />
                 Sign Up with Google
               </button>
-              <button className="flex items-center gap-2 border border-[#252525] bg-transparent text-sm text-white px-4 py-2 rounded-full bg-[#191817]">
+              <button className="flex items-center justify-center gap-2 border border-[#252525] bg-transparent text-sm text-white px-4 py-2 rounded-full bg-[#191817]">
                 <FaApple color="white" />
                 Sign Up with Apple
               </button>

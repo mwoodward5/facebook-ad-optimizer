@@ -1,12 +1,13 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import { useCampaign } from "../../../../../context/campaign";
 
 interface CampaignProps {
   name: string;
   image: string;
-  spends: number; // Percentage (0-100)
-  roi: number; // Percentage (0-100)
-  clicks: number; // Percentage (0-100)
+  spends: number;
+  roi: number;
+  clicks: number;
   onPause: () => void;
   onOptimize: () => void;
 }
@@ -20,6 +21,8 @@ const Campaign: React.FC<CampaignProps> = ({
   onPause,
   onOptimize,
 }) => {
+  const { setShowModal } = useCampaign();
+
   const generateChartOptions = (
     value: number,
     color: string,
@@ -74,7 +77,10 @@ const Campaign: React.FC<CampaignProps> = ({
   });
 
   return (
-    <div className="bg-[#191817] border border-[#252525] rounded-3xl text-white space-y-4 w-full">
+    <div
+      onClick={() => setShowModal(true)}
+      className="bg-[#191817] border border-[#252525] rounded-3xl text-white space-y-4 w-full"
+    >
       <div className="p-4">
         {/* Campaign Header */}
         <div className="flex items-center justify-between">

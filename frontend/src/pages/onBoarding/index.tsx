@@ -5,7 +5,7 @@ function OnBoarding() {
   return (
     <div className="bg-background text-white flex h-screen">
       {/* Left Section */}
-      <div className=" relative  w-1/2 flex flex-col justify-center items-center p-8">
+      <div className=" relative hidden  w-1/2 md:flex flex-col justify-center items-center p-8">
         <img
           src={IMAGES.onboarding}
           alt="Placeholder"
