@@ -1,6 +1,6 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-import { useCampaign } from "../../../../../context/campaign";
+import { useNavigate } from "react-router";
 
 interface CampaignProps {
   name: string;
@@ -21,65 +21,70 @@ const Campaign: React.FC<CampaignProps> = ({
   onPause,
   onOptimize,
 }) => {
-  const { setShowModal } = useCampaign();
+  const navigate = useNavigate();
 
   const generateChartOptions = (
     value: number,
     color: string,
     label: string
-  ): ApexCharts.ApexOptions => ({
-    chart: {
-      type: "radialBar",
-      background: "transparent",
-      sparkline: {
-        enabled: true,
-      },
-    },
-    plotOptions: {
-      radialBar: {
-        hollow: {
-          size: "60%",
-        },
-        track: {
-          background: "#1a1a1a", // Background track color
-          strokeWidth: "100%",
-        },
-        dataLabels: {
-          show: true,
-          name: {
-            show: true,
-            fontSize: "14px",
-            fontWeight: "bold",
-            offsetY: -10,
-            color: "#ffffff",
-          },
-          value: {
-            show: true,
-            fontSize: "16px",
-            fontWeight: "bold",
-            color: "#ffffff",
-            offsetY: 10,
-          },
-          total: {
-            show: true,
-            label,
-            color: "#ffffffd2",
-            fontSize: "14px",
-            fontWeight: "normal",
-          },
+  ): ApexCharts.ApexOptions => {
+    // Dynamically adjust size based on screen width
+    const isSmallScreen = window.innerWidth <= 768;
+
+    return {
+      chart: {
+        type: "radialBar",
+        background: "transparent",
+        sparkline: {
+          enabled: true,
         },
       },
-    },
-    fill: {
-      colors: [color],
-    },
-    series: [value],
-  });
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            size: "60%", // Adjust hollow size for smaller devices
+          },
+          track: {
+            background: "#1a1a1a", // Background track color
+            strokeWidth: "100%",
+          },
+          dataLabels: {
+            show: true,
+            name: {
+              show: true,
+              fontSize: isSmallScreen ? "12px" : "14px", // Adjust font size for smaller devices
+              fontWeight: "bold",
+              offsetY: -10,
+              color: "#ffffff",
+            },
+            value: {
+              show: true,
+              fontSize: isSmallScreen ? "14px" : "16px", // Adjust font size
+              fontWeight: "bold",
+              color: "#ffffff",
+              offsetY: 10,
+            },
+            total: {
+              show: true,
+              label,
+              color: "#ffffffd2",
+              fontSize: isSmallScreen ? "12px" : "14px", // Adjust font size
+              fontWeight: "normal",
+            },
+          },
+        },
+      },
+      fill: {
+        colors: [color],
+      },
+      series: [value],
+    };
+  };
 
   return (
     <div
-      onClick={() => setShowModal(true)}
-      className="bg-[#191817] border border-[#252525] rounded-3xl text-white space-y-4 w-full"
+      onClick={() => navigate("/campaigns/123")}
+      className="bg-[#191817] border border-[#252525] rounded-3xl text-white space-y-4 w-full cursor-pointer"
     >
       <div className="p-4">
         {/* Campaign Header */}
@@ -103,8 +108,8 @@ const Campaign: React.FC<CampaignProps> = ({
               options={generateChartOptions(spends, "#4CAF50", "Spends")}
               series={[spends]}
               type="radialBar"
-              height={120}
-              width={120}
+              height={window.innerWidth <= 768 ? 100 : 120}
+              width={window.innerWidth <= 768 ? 100 : 120}
             />
           </div>
 
@@ -114,8 +119,8 @@ const Campaign: React.FC<CampaignProps> = ({
               options={generateChartOptions(roi, "#FFC107", "ROI")}
               series={[roi]}
               type="radialBar"
-              height={120}
-              width={120}
+              height={window.innerWidth <= 768 ? 100 : 120}
+              width={window.innerWidth <= 768 ? 100 : 120}
             />
           </div>
 
@@ -125,8 +130,8 @@ const Campaign: React.FC<CampaignProps> = ({
               options={generateChartOptions(clicks, "#F44336", "Clicks")}
               series={[clicks]}
               type="radialBar"
-              height={120}
-              width={120}
+              height={window.innerWidth <= 768 ? 100 : 120}
+              width={window.innerWidth <= 768 ? 100 : 120}
             />
           </div>
         </div>

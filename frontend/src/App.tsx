@@ -25,6 +25,9 @@ import Help from "./pages/help";
 import MainHelp from "./pages/help/help";
 import Contact from "./pages/help/contact";
 import Mobile from "./pages/settings/mobile";
+import Facebook from "./pages/adsCreation/facebook";
+import Craigslist from "./pages/adsCreation/craigslist";
+import Account from "./pages/settings/account";
 
 function App() {
   return (
@@ -36,10 +39,14 @@ function App() {
             <Route path="/campaigns" element={<Campaigns />} />
             <Route path="/campaigns/:id" element={<Detail />} />
             <Route path="/automation" element={<Automation />} />
-            <Route path="/ad-creation" element={<AdsCreation />} />
+            <Route path="/ad-creation" element={<AdsCreation />}>
+              <Route path="/ad-creation" element={<Facebook />} />
+              <Route path="craigslist" element={<Craigslist />} />
+            </Route>
             <Route path="/ad-creation/ai" element={<AiGenerated />} />
             <Route path="/reports-analytics" element={<Report />} />
             <Route path="/settings" element={<Settings />}>
+              <Route path="account" element={<Account />} />
               <Route path="profile" element={<Profile />} />
               <Route path="subscription" element={<Subscription />} />
               <Route path="notification" element={<Notification />} />

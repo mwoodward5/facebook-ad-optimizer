@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCampaign } from "../../../../../context/campaign";
 
 interface EngagementDay {
   day: string;
@@ -6,6 +7,8 @@ interface EngagementDay {
 }
 
 const EngagementsCalendar: React.FC = () => {
+  const { setShowModal } = useCampaign();
+
   const [month, setMonth] = useState("December");
 
   // Sample data for a month (replace with dynamic data from API)
@@ -93,9 +96,10 @@ const EngagementsCalendar: React.FC = () => {
         {data.flat().map((item, index) => (
           <div
             key={index}
-            className={`h-8 flex items-center justify-center text-sm font-medium rounded-sm opacity-70 hover:opacity-100 ${getColor(
+            className={`h-8 flex items-center justify-center cursor-pointer text-sm font-medium rounded-sm opacity-70 hover:opacity-100 ${getColor(
               item.value
             )}`}
+            onClick={() => setShowModal(true)}
           >
             {item.day === "1st" && item.day}
           </div>

@@ -51,15 +51,15 @@ function Detail() {
         <div className="flex flex-col md:flex-row md:items-center gap-4">
           <button className="flex items-center justify-center gap-2 border border-primary bg-transparent text-sm text-primary px-4 py-2 rounded-full ">
             Edit
-            <CiEdit />
+            <CiEdit className="text-lg" />
           </button>
           <button className="flex items-center justify-center gap-2 border border-primary bg-transparent text-sm text-primary px-4 py-2 rounded-full ">
             Pause Campaign
-            <CiPause1 />
+            <CiPause1 className="text-lg" />
           </button>
           <button className="flex items-center justify-center gap-2 border border-primary text-sm text-white px-4 py-2 rounded-full bg-primary">
             Automate Campaign
-            <HiOutlineBolt />
+            <HiOutlineBolt className="text-lg" />
           </button>
         </div>
       </div>

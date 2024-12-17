@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import IMAGES from "../../../../assets/images";
 import { FaRegUser } from "react-icons/fa";
-import { IoIosHelpCircleOutline } from "react-icons/io";
+import { FaRegCircleQuestion } from "react-icons/fa6";
 import { IoLogOutOutline } from "react-icons/io5";
 
 interface Props {
@@ -24,19 +24,19 @@ function Menu({ isOpen, onClose }: Props) {
               <div className="text-xs">exampleAmail.com</div>
             </div>
           </div>
-          <Link to="#" className="flex items-center gap-2">
-            <FaRegUser className="text-md" />
+          <Link to="/settings/profile" className="flex items-center gap-3">
+            <FaRegUser className="text-lg text-text" />
             Profile
           </Link>
-          <Link to="/help" className="flex items-center gap-2">
-            <IoIosHelpCircleOutline className="text-lg" />
+          <Link to="/help" className="flex items-center gap-3">
+            <FaRegCircleQuestion className="text-lg text-text" />
             Help
           </Link>
           <Link
             to="#"
-            className="flex items-center gap-2 border-t border-[#252525] pt-2"
+            className="flex items-center gap-3 border-t border-[#252525] pt-2"
           >
-            <IoLogOutOutline className="text-lg" />
+            <IoLogOutOutline className="text-xl text-text" />
             Logout
           </Link>
         </div>

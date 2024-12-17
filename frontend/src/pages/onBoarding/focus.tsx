@@ -9,10 +9,8 @@ const Focus = () => {
   const [selected, setSelected] = useState("");
   return (
     <div className="w-full md:w-1/2 flex flex-col justify-between p-8">
-      <div className="flex flex-col items-start">
-        <h1 className="text-primary text-4xl font-bold mb-4">LOGO</h1>
-        <Step step={2} />
-      </div>
+      <Step step={2} />
+
       <div className="flex flex-col gap-6">
         <h2 className=" text-2xl font-semibold">What’s your primary focus?</h2>
         {["Increase ROI", "Boost engagement", "Maximize reach"].map((value) => (

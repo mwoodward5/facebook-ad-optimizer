@@ -46,7 +46,7 @@ const Metric: React.FC = () => {
   ];
 
   return (
-    <div className=" p-6 rounded-lg shadow-md text-white max-w-lg mx-auto">
+    <div className=" py-6 rounded-lg shadow-md text-white max-w-lg mx-auto">
       <h2 className="text-lg  mb-2">CTR</h2>
       <p className="text-2xl font-bold mb-4">0.7%</p>
       <div className="flex items-center justify-between">
@@ -64,11 +64,11 @@ const Metric: React.FC = () => {
         height={300}
       />
       <div className="mt-6">
-        <div className="flex items-center gap-2">
-          <TiWarningOutline className="text-red-500 text-xl" />
+        <div className="flex items-center gap-2 text-2xl mb-2">
+          <TiWarningOutline className="text-red-500 text-2xl" />
           <p className="font-semibold">CTR Needs Improvement</p>
         </div>
-        <ul className="mt-2 space-y-2 text-text list-disc">
+        <ul className="mt-2 px-4 space-y-2 text-text list-disc">
           <li>Use more engaging images.</li>
           <li>Target a narrower audience for relevance.</li>
         </ul>

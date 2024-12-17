@@ -31,7 +31,11 @@ const Login = () => {
       <div className="absolute md:relative left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:translate-y-0 top-0 md:top-auto  bg-background w-full md:w-1/2 flex flex-col justify-center items-center p-8">
         <div className="w-full max-w-lg ">
           {/* Logo */}
-          <h1 className="text-primary text-4xl font-bold mb-4">LOGO</h1>
+          <img
+            src={IMAGES.logo} // Replace with your logo image path
+            alt="Logo"
+            className="h-16 mb-4 w-auto"
+          />
           <h2 className="text-white text-4xl mt-2">Welcome Back!</h2>
           <div>The perfect time to take control of your financial journey.</div>
 

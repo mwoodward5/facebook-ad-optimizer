@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiChatAiLine } from "react-icons/ri";
+import IMAGES from "../../../assets/images";
 
 function Chat() {
   const [show, setShow] = useState(false);
@@ -21,7 +22,7 @@ function Chat() {
           {/* Logo */}
           <div className="bg-gradient-to-b from-orange-900 to-background p-6">
             <div className="w-full max-w-md flex justify-start mb-6">
-              <img src="/your-logo.png" alt="Logo" className="h-12" />
+              <img src={IMAGES.logo} alt="Logo" className="h-12" />
             </div>
 
             {/* Header */}

@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import IMAGES from "../../../assets/images";
 import { GoBell } from "react-icons/go";
-import { FaCog } from "react-icons/fa";
 import Notification from "./_component/notification";
 import Menu from "./_component/menu";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FaRegCircleQuestion } from "react-icons/fa6";
-import { IoMdMenu } from "react-icons/io";
+import { RiMenuFill } from "react-icons/ri";
 import Sidebar from "./_component/sideBar";
+import { IoSettingsOutline } from "react-icons/io5";
 
 const navLinks = [
   { name: "Dashboard", path: "/" },
@@ -27,16 +27,11 @@ const Header: React.FC = () => {
       <header className="fixed top-0 left-0 w-full flex items-center justify-between md:justify-self-auto gap-10 p-4 md:px-8 border-b border-[#252525] bg-[#191817] z-30 ">
         {/* Left Section - Logo */}
         <div className="flex items-center gap-3">
-          <IoMdMenu
-            className="text-lg md:hidden"
-            onClick={() => setShowSidebar(!showSidebar)}
-          />
-          <Sidebar isOpen={showSidebar} onClose={() => setShowSidebar(false)} />
           <Link to="/" className="flex items-center space-x-4">
             <img
-              src="/logo.png" // Replace with your logo image path
+              src={IMAGES.logo} // Replace with your logo image path
               alt="Logo"
-              className="h-8 w-auto"
+              className="h-8 md:h-12 w-auto"
             />
           </Link>
         </div>
@@ -63,7 +58,7 @@ const Header: React.FC = () => {
         <div className="flex items-center space-x-4">
           <FaRegCircleQuestion
             onClick={() => navigate("/help")}
-            className="md:hidden text-lg text-text"
+            className="md:hidden text-lg text-text mb-1"
           />
           {/* Notifications */}
           <div className="relative">
@@ -71,7 +66,7 @@ const Header: React.FC = () => {
               onClick={() => setShowNotification(!showNotification)}
               className="relative text-text hover:text-white"
             >
-              <GoBell className="text-lg" />
+              <GoBell className="text-lg " />
             </button>
             <Notification
               isOpen={showNotification}
@@ -81,9 +76,9 @@ const Header: React.FC = () => {
           {/* Settings */}
           <button
             onClick={() => navigate("/settings/profile")}
-            className="text-gray-400 hover:text-white hidden md:block"
+            className="text-text hover:text-white hidden md:block mb-1"
           >
-            <FaCog className="text-lg" />
+            <IoSettingsOutline className="text-lg" />
           </button>
           {/* Profile */}
           <div className="relative hidden md:block">
@@ -100,6 +95,11 @@ const Header: React.FC = () => {
             </div>
             <Menu isOpen={showMenu} onClose={() => setShowMenu(false)} />
           </div>
+          <RiMenuFill
+            className="text-xl mb-1 md:hidden"
+            onClick={() => setShowSidebar(!showSidebar)}
+          />
+          <Sidebar isOpen={showSidebar} onClose={() => setShowSidebar(false)} />
         </div>
       </header>
       <div className="h-[70px]" />

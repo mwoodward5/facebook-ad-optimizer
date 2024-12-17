@@ -17,7 +17,7 @@ function Main() {
         size="w-full md:w-2/5"
         onClose={() => setShowModal(null)}
       >
-        <CampaignModal></CampaignModal>
+        <CampaignModal />
       </DrawerModal>
     </div>
   );

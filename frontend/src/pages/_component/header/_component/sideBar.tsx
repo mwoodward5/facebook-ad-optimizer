@@ -10,8 +10,8 @@ interface Props {
 function Sidebar({ isOpen, onClose }: Props) {
   return (
     <div
-      className={`absolute flex flex-col justify-between pb-[130px] top-[60px] bg-background left-0 h-screen space-y-3 w-full md:w-80 bg-dark transform transition-transform duration-300 ease-in-out ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
+      className={`absolute flex flex-col justify-between pb-[130px] top-[60px] bg-background right-0 md:hidden h-screen space-y-3 w-full md:w-80 bg-dark transform transition-transform duration-300 ease-in-out ${
+        isOpen ? "translate-x-0" : "translate-x-full"
       } z-20`}
     >
       <div>

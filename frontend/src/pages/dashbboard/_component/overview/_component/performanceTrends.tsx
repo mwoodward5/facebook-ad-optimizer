@@ -49,7 +49,7 @@ const PerformanceTrends: React.FC = () => {
     },
     legend: {
       position: "bottom",
-      labels: { colors: "#BDBEC0" },
+      labels: { colors: "white" },
     },
   };
 

@@ -1,3 +1,4 @@
+import IMAGES from "../../../assets/images";
 import Campaign from "../_component/overview/_component/campaign";
 
 function Campaigns() {
@@ -19,8 +20,8 @@ function Campaigns() {
         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => (
           <Campaign
             key={index}
-            name="Campaign 1"
-            image="/campaign-image.jpg" // Replace with your image path
+            name={`Campaign ${index + 1}`}
+            image={IMAGES.card1}
             spends={40}
             roi={65}
             clicks={85}

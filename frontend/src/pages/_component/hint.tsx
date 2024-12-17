@@ -6,7 +6,7 @@ function Hint() {
   const [show, setShow] = useState(true);
   return (
     show && (
-      <div className="fixed bottom-10 right-10 bg-primary p-4 rounded-3xl space-y-4 max-w-sm w-full">
+      <div className="fixed bottom-4 md:bottom-10 left-4 md:left-auto right-4 md:right-10 bg-primary p-4 rounded-3xl space-y-4 md:max-w-sm md:w-full">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 font-medium text-base">
             <HiOutlineLightBulb className="text-xl" />

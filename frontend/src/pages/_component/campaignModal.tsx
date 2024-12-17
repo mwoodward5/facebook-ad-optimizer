@@ -54,8 +54,12 @@ const CampaignModal: React.FC = () => {
         <p className="text-text mb-6">{campaignData.description}</p>
         <img
           src={campaignData.image}
+          onClick={() => {
+            navigate("/campaigns/123");
+            setShowModal(null);
+          }}
           alt="Campaign"
-          className="w-full rounded-3xl mb-6"
+          className="w-full rounded-3xl mb-6 cursor-pointer"
         />
         <div className="grid grid-cols-3 gap-4 text-center ">
           <div>

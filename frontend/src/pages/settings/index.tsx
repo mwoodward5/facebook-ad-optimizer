@@ -1,7 +1,8 @@
 import { NavLink, Outlet } from "react-router";
 
 export const navs = [
-  { name: "Profile Information", path: "/settings/profile" },
+  { name: "Account Management", path: "/settings/account" },
+  { name: "Edit Profile", path: "/settings/profile" },
   { name: "Subscription Details", path: "/settings/subscription" },
   { name: "Notification settings", path: "/settings/notification" },
   { name: "Data Privacy ", path: "/settings/privacy" },

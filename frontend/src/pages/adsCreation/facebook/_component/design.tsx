@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoCloudUploadOutline } from "react-icons/io5";
-import IMAGES from "../../../assets/images";
+import IMAGES from "../../../../assets/images";
 interface Props {
   previous: () => void;
   next: () => void;

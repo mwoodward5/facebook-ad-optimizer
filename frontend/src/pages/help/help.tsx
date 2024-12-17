@@ -5,7 +5,7 @@ function MainHelp() {
   return (
     <div className="my-8 space-y-8">
       <div className="text-2xl font-medium">How Can We Help You Today?</div>
-      <div className="flex items-center gap-2 border border-[#252525] rounded-full p-2 w-1/5">
+      <div className="flex items-center gap-2 border border-[#252525] rounded-full p-2 w-1/2 md:w-1/5">
         <div>
           <CiSearch className="text-lg" />
         </div>

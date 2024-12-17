@@ -1,16 +1,22 @@
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { RxDragHandleDots2 } from "react-icons/rx";
+import { Range } from "react-range";
+
 interface Props {
   next: () => void;
 }
 function Goal({ next }: Props) {
-  const [ageRange, setAgeRange] = useState<[number, number]>([18, 44]);
   const [selectedTags, setSelectedTags] = useState<string[]>([
     "Male",
     "Title 2",
   ]);
   const [gender, setGender] = useState<string | null>(null);
+  const [values, setValues] = useState([18, 44]); // Initial min and max values
+
+  const STEP = 1; // Increment step
+  const MIN = 18; // Minimum value
+  const MAX = 44; // Maximum value
 
   const handleTagRemove = (tag: string) => {
     setSelectedTags(selectedTags.filter((t) => t !== tag));
@@ -24,7 +30,6 @@ function Goal({ next }: Props) {
 
   return (
     <div>
-      {" "}
       <div className="mt-12">
         <label className="block mb-2 text-text">
           What is your campaign goal
@@ -48,37 +53,53 @@ function Goal({ next }: Props) {
           <label className="block text-text">Age range</label>
           <span className="text-red-500">Needs optimization</span>
         </div>
-        <div className="flex items-center justify-between">
-          <input
-            type="number"
-            className="bg-[#191919] text-white p-2 w-16 rounded-lg"
-            value={ageRange[0]}
-            onChange={(e) => setAgeRange([+e.target.value, ageRange[1]])}
-          />
-          <div className="relative w-full mx-4">
-            <input
-              type="range"
-              min="18"
-              max="100"
-              value={ageRange[0]}
-              className="absolute w-full appearance-none bg-transparent"
-              onChange={(e) => setAgeRange([+e.target.value, ageRange[1]])}
-            />
-            <input
-              type="range"
-              min="18"
-              max="100"
-              value={ageRange[1]}
-              className="absolute w-full appearance-none bg-transparent"
-              onChange={(e) => setAgeRange([ageRange[0], +e.target.value])}
+        <div className="flex items-center space-x-4">
+          {/* Min Value Display */}
+          <div className="w-12 h-8 flex items-center justify-center text-sm border border-[#252525] text-white rounded">
+            {values[0]}
+          </div>
+          <div className="flex-grow relative">
+            <Range
+              values={values}
+              step={STEP}
+              min={MIN}
+              max={MAX}
+              onChange={(values) => setValues(values)}
+              renderTrack={({ props, children }) => (
+                <div
+                  {...props}
+                  className="h-1 w-full bg-white rounded relative"
+                  style={props.style}
+                >
+                  <div
+                    className="absolute h-1 bg-orange-500 rounded"
+                    style={{
+                      left: `${((values[0] - MIN) / (MAX - MIN)) * 100}%`,
+                      width: `${
+                        ((values[1] - values[0]) / (MAX - MIN)) * 100
+                      }%`,
+                    }}
+                  />
+                  {children}
+                </div>
+              )}
+              renderThumb={({ props, isDragged }) => (
+                <div
+                  {...props}
+                  className={`w-4 h-4 rounded-full bg-orange-500 border-2 ${
+                    isDragged ? "border-white" : "border-transparent"
+                  }`}
+                  style={{
+                    ...props.style,
+                  }}
+                />
+              )}
             />
           </div>
-          <input
-            type="number"
-            className="bg-[#191919] text-white p-2 w-16 rounded-lg"
-            value={ageRange[1]}
-            onChange={(e) => setAgeRange([ageRange[0], +e.target.value])}
-          />
+          {/* Max Value Display */}
+          <div className="w-12 h-8 flex items-center justify-center text-sm border border-[#252525] text-white rounded">
+            {values[1]}
+          </div>
         </div>
       </div>
       {/* Audience Tags */}
